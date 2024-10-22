@@ -3,6 +3,11 @@ var rect = canvas.getBoundingClientRect();
 console.log("Rect ", rect)
 const ctx = canvas.getContext("2d");
 
+if(localStorage.getItem('line'))
+    var lineS = localStorage.getItem('line'); 
+else
+    localStorage.setItem('line','');
+
 //let xCan = ctx.getBoundingClientRect().left
 //let yCan = ctx.getBoundingClientRect().top
 //console.log("xCan", xCan, "yCan", yCan)
@@ -30,6 +35,15 @@ ctx.stroke();
 
 canvas.addEventListener ('click', event => {
     console.log(`x: ${event.screenX}, y: ${event.screenY}`);    
-    console.log(`x2: ${event.screenX-102}, y2: ${event.screenY-171}`);
+    console.log(`xCorrect: ${event.screenX-102}, yCorrect: ${event.screenY-171}`);
+    x1 = event.screenX
+    y1 = event.screenY
+    ctx.moveTo(x1,y1);
 
-  })
+    x2 = event.screenX
+    y2 = event.screenY
+    })
+
+    //ctx.lineTo(x2, y2);
+    //ctx.stroke();
+
